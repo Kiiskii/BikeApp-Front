@@ -1,1 +1,12 @@
-<p>stations works!</p>
+<div class="text-xs">
+  <table class="mx-auto table-auto border border-black">
+    <tr class="border-b border-b-black bg-slate-400 font-bold">
+      <td>Name</td>
+      <td>City</td>
+    </tr>
+    <tr *ngFor="let station of stations" class="border-b border-b-black">
+      <td>{{ station.nimi }}</td>
+      <td>{{ station.kaupunki }}</td>
+    </tr>
+  </table>
+</div>

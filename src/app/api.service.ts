@@ -10,8 +10,12 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   journeysURL = 'http://localhost:3000/api/journeys';
+  stationsURL = 'http://localhost:3000/api/stations';
 
   getJourneys() {
     return this.http.get(this.journeysURL);
+  }
+  getStations() {
+    return this.http.get(this.stationsURL);
   }
 }
