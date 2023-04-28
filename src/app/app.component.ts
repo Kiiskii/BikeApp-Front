@@ -11,9 +11,12 @@ export class AppComponent {
 
   constructor(private apiservice: ApiService) {}
 
+  journeys: any = [];
+
   ngOnInit() {
     this.apiservice.getJourneys().subscribe((response) => {
       console.log(response);
+      this.journeys = response;
     });
   }
 }
