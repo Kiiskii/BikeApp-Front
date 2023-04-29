@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Journey } from '../journey.model';
+import { StringToDatePipe } from '../stringToDate.pipe';
 
 @Component({
   selector: 'app-journeys',

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StringToDatePipe } from './stringToDate.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     StationsComponent,
     HeaderComponent,
     FooterComponent,
+    StringToDatePipe,
   ],
   imports: [
     BrowserModule,
