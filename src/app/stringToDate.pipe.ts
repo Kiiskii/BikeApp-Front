@@ -4,7 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'stringToDate',
 })
 export class StringToDatePipe implements PipeTransform {
-  transform(date: Date): string {
-    return new Date(date).toLocaleDateString();
+  transform(dateStr: string): string {
+    const date = new Date(dateStr);
+    return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
   }
 }
