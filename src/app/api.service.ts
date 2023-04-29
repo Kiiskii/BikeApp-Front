@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { Observable, throwError } from 'rxjs';
-// import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Journey } from './journey.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,8 @@ export class ApiService {
   journeysURL = 'http://localhost:3000/api/journeys';
   stationsURL = 'http://localhost:3000/api/stations';
 
-  getJourneys() {
-    return this.http.get(this.journeysURL);
+  getJourneys(): Observable<Journey[]> {
+    return this.http.get<Journey[]>(this.journeysURL);
   }
   getStations() {
     return this.http.get(this.stationsURL);

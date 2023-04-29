@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Journey } from '../journey.model';
 
 @Component({
   selector: 'app-journeys',
@@ -9,7 +10,7 @@ import { ApiService } from '../api.service';
 export class JourneysComponent {
   constructor(private apiservice: ApiService) {}
 
-  journeys: any = [];
+  journeys: Journey[] = [];
 
   ngOnInit() {
     this.apiservice.getJourneys().subscribe((response) => {

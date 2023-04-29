@@ -9,8 +9,8 @@
     <tr *ngFor="let journey of journeys" class="border-b border-b-black">
       <td>{{ journey.departure_station_name }}</td>
       <td>{{ journey.return_station_name }}</td>
-      <td>{{ journey.covered_distance }}</td>
-      <td>{{ journey.duration }}</td>
+      <td>{{ journey.covered_distance / 1000 }} km</td>
+      <td>{{ journey.duration / 60 | number : "1.1-1" }} min</td>
     </tr>
   </table>
 </div>
