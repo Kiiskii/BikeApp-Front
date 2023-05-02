@@ -15,8 +15,8 @@
       <td>{{ journey.return | stringToDate }}</td>
       <td>{{ journey.departure_station_name }}</td>
       <td>{{ journey.return_station_name }}</td>
-      <td>{{ journey.covered_distance / 1000 }} km</td>
-      <td>{{ journey.duration / 60 | number : "1.1-1" }} min</td>
+      <td>{{ journey.covered_distance / 1000 | number : "1.1-2" }} km</td>
+      <td>{{ convertSecondsToMinutes(journey.duration) }}</td>
     </tr>
   </table>
 </div>

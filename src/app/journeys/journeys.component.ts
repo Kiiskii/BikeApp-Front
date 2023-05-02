@@ -12,6 +12,15 @@ export class JourneysComponent {
 
   journeys: Journey[] = [];
 
+  convertSecondsToMinutes(time: number) {
+    if (time >= 60) {
+      let minutes = Math.floor(time / 60);
+      let remainingTime = time % 60;
+      return `${minutes}min ${remainingTime}sec`;
+    }
+    return `${time}sec`;
+  }
+
   ngOnInit() {
     this.apiservice.getJourneys().subscribe((response) => {
       console.log(response);
