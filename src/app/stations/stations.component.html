@@ -3,10 +3,23 @@
     <tr class="border-b border-b-black bg-slate-400 font-bold">
       <td>Name</td>
       <td>City</td>
+      <td>Address</td>
     </tr>
     <tr *ngFor="let station of stations" class="border-b border-b-black">
       <td>{{ station.nimi }}</td>
       <td>{{ station.kaupunki }}</td>
+      <td>{{ station.osoite }}</td>
     </tr>
   </table>
+  <div class="has-text-centered flex justify-center gap-4 p-3 text-base">
+    <!-- 
+      I was originally planning on using pagination controls, but due to the amount of data made this quite difficult to implement.
+   -->
+
+    <button (click)="firstPage()" class="button">&lt;&lt;&lt;</button>
+    <button (click)="prevPage()" class="button">&lt;</button>
+    <span>{{ page }}</span>
+    <button (click)="nextPage()" class="button">&gt;</button>
+    <button (click)="lastPage()" class="button">&gt;&gt;&gt;</button>
+  </div>
 </div>
