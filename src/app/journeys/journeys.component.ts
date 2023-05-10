@@ -11,6 +11,8 @@ export class JourneysComponent {
   constructor(private apiservice: ApiService) {}
 
   journeys: Journey[] = [];
+  page: number = 1;
+  maxPage: number = 1;
 
   convertSecondsToMinutes(time: number) {
     if (time >= 60) {
@@ -22,9 +24,44 @@ export class JourneysComponent {
   }
 
   ngOnInit() {
-    this.apiservice.getJourneys().subscribe((response) => {
+    this.fetchData();
+    this.fetchPages();
+  }
+
+  public fetchData() {
+    this.apiservice.getJourneys(this.page).subscribe((response) => {
       console.log(response);
       this.journeys = response;
     });
+  }
+
+  public fetchPages() {
+    this.apiservice.getJourneyPages().subscribe((response: number) => {
+      this.maxPage = response;
+    });
+  }
+
+  public nextPage() {
+    if (this.page == this.maxPage) return;
+    this.page++;
+    this.fetchData();
+  }
+
+  public prevPage() {
+    if (this.page == 1) return;
+    this.page--;
+    this.fetchData();
+  }
+
+  public lastPage() {
+    if (this.page == this.maxPage) return;
+    this.page = this.maxPage;
+    this.fetchData();
+  }
+
+  public firstPage() {
+    if (this.page == 1) return;
+    this.page = 1;
+    this.fetchData();
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Station } from '../station.model';
 
 @Component({
   selector: 'app-stations',
@@ -9,12 +10,49 @@ import { ApiService } from '../api.service';
 export class StationsComponent {
   constructor(private apiservice: ApiService) {}
 
-  stations: any = [];
+  stations: Station[] = [];
+  page: number = 1;
+  maxPage: number = 1;
 
   ngOnInit() {
-    this.apiservice.getStations().subscribe((response) => {
+    this.fetchData();
+    this.fetchPages();
+  }
+
+  public fetchData() {
+    this.apiservice.getStations(this.page).subscribe((response) => {
       console.log(response);
       this.stations = response;
     });
+  }
+
+  public fetchPages() {
+    this.apiservice.getStationPages().subscribe((response: number) => {
+      this.maxPage = response;
+    });
+  }
+
+  public nextPage() {
+    if (this.page == this.maxPage) return;
+    this.page++;
+    this.fetchData();
+  }
+
+  public prevPage() {
+    if (this.page == 1) return;
+    this.page--;
+    this.fetchData();
+  }
+
+  public lastPage() {
+    if (this.page == this.maxPage) return;
+    this.page = this.maxPage;
+    this.fetchData();
+  }
+
+  public firstPage() {
+    if (this.page == 1) return;
+    this.page = 1;
+    this.fetchData();
   }
 }
