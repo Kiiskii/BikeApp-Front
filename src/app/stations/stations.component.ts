@@ -13,15 +13,24 @@ export class StationsComponent {
   stations: Station[] = [];
   page: number = 1;
   maxPage: number = 1;
+  searchTerm: string = '';
+  searchResult: Station[] = [];
 
   ngOnInit() {
     this.fetchData();
     this.fetchPages();
   }
 
+  search() {
+    console.log(this.searchTerm);
+    this.apiservice.getSearchResult(this.searchTerm).subscribe((response) => {
+      console.log(response);
+      this.stations = response;
+    });
+  }
+
   public fetchData() {
     this.apiservice.getStations(this.page).subscribe((response) => {
-      console.log(response);
       this.stations = response;
     });
   }

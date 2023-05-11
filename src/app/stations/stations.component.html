@@ -1,4 +1,11 @@
-<div class="text-xs">
+<div class="mx-auto flex flex-col text-xs">
+  <div class="mx-auto p-3">
+    <form (submit)="search()">
+      <input type="text" name="searchTerm" [(ngModel)]="searchTerm" />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
   <table class="mx-auto table-auto border border-black">
     <tr class="border-b border-b-black bg-slate-400 font-bold">
       <td>Name</td>
