@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StationsComponent } from './stations.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('StationsComponent', () => {
   let component: StationsComponent;
@@ -9,7 +10,7 @@ describe('StationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, FormsModule],
       declarations: [StationsComponent],
     }).compileComponents();
 
