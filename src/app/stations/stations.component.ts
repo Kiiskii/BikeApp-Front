@@ -21,10 +21,16 @@ export class StationsComponent {
     this.fetchPages();
   }
 
+  capitalizeFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   search() {
     if (this.searchTerm == '') return;
+    const capitalizedString = this.capitalizeFirstLetter(this.searchTerm);
+    console.log(capitalizedString);
     this.apiservice
-      .getSearchResult(this.searchTerm, this.page)
+      .getSearchResult(capitalizedString, this.page)
       .subscribe((response) => {
         console.log(response);
         this.stations = response;
