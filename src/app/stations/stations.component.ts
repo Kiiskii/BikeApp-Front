@@ -22,11 +22,13 @@ export class StationsComponent {
   }
 
   search() {
-    console.log(this.searchTerm);
-    this.apiservice.getSearchResult(this.searchTerm).subscribe((response) => {
-      console.log(response);
-      this.stations = response;
-    });
+    if (this.searchTerm == '') return;
+    this.apiservice
+      .getSearchResult(this.searchTerm, this.page)
+      .subscribe((response) => {
+        console.log(response);
+        this.stations = response;
+      });
   }
 
   public fetchData() {

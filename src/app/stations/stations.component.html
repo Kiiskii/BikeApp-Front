@@ -1,7 +1,13 @@
 <div class="mx-auto flex flex-col text-xs">
   <div class="mx-auto p-3">
-    <form (submit)="search()">
-      <input type="text" name="searchTerm" [(ngModel)]="searchTerm" />
+    <form>
+      <input
+        type="text"
+        name="searchTerm"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="search()"
+      />
+      <p>{{ searchTerm }}</p>
       <button type="submit">Search</button>
     </form>
   </div>
@@ -18,7 +24,10 @@
       <td>{{ station.osoite }}</td>
     </tr>
   </table>
-  <div class="has-text-centered flex justify-center gap-4 p-3 text-base">
+  <div
+    class="has-text-centered flex justify-center gap-4 p-3 text-base"
+    [ngClass]="{ hidden: !searchTerm === false }"
+  >
     <!-- 
       I was originally planning on using pagination controls, but due to the amount of data made this quite difficult to implement.
    -->
