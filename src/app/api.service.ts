@@ -14,6 +14,7 @@ export class ApiService {
   journeycountURL = 'http://localhost:3000/api/journeycount';
   stationsURL = 'http://localhost:3000/api/stations';
   stationcountURL = 'http://localhost:3000/api/stationcount';
+  searchURL = 'http://localhost:3000/api/search/';
 
   getJourneys(page: number): Observable<Journey[]> {
     return this.http.get<Journey[]>(this.journeysURL + '?page=' + page);
@@ -28,5 +29,11 @@ export class ApiService {
   }
   getStationPages(): Observable<number> {
     return this.http.get<number>(this.stationcountURL);
+  }
+
+  getSearchResult(searchQuery: string, page: number): Observable<Station[]> {
+    return this.http.get<Station[]>(
+      this.searchURL + searchQuery + '?page' + page
+    );
   }
 }

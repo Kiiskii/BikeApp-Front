@@ -13,15 +13,32 @@ export class StationsComponent {
   stations: Station[] = [];
   page: number = 1;
   maxPage: number = 1;
+  searchTerm: string = '';
+  searchResult: Station[] = [];
 
   ngOnInit() {
     this.fetchData();
     this.fetchPages();
   }
 
+  capitalizeFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  search() {
+    if (this.searchTerm == '') return;
+    const capitalizedString = this.capitalizeFirstLetter(this.searchTerm);
+    console.log(capitalizedString);
+    this.apiservice
+      .getSearchResult(capitalizedString, this.page)
+      .subscribe((response) => {
+        console.log(response);
+        this.stations = response;
+      });
+  }
+
   public fetchData() {
     this.apiservice.getStations(this.page).subscribe((response) => {
-      console.log(response);
       this.stations = response;
     });
   }
