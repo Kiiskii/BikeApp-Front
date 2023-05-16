@@ -3,6 +3,7 @@ export interface Station {
   id: number;
   nimi: string;
   namn: string;
+  name: string;
   osoite: string;
   adress: string;
   kaupunki: string;
