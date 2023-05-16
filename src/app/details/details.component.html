@@ -1,15 +1,13 @@
-<div>
-  <div class="rounded-lg border border-black" *ngIf="stations">
-    <p>{{ stations.nimi }}</p>
+<div class="mx-auto w-2/5 p-1">
+  <div class="rounded-lg border border-black p-4 text-center" *ngIf="stations">
+    <p class="p-1 text-xl font-bold">{{ stations.nimi }}</p>
     <p>{{ stations.namn }}</p>
+    <p>
+      {{ stations.osoite }}, {{ stations.kaupunki }} / {{ stations.adress }},
+      {{ stations.stad }}
+    </p>
     <p>Bike Capacity: {{ stations.kapasiteet }}</p>
-    <h1>
-      Departures from the station:
-      <p>{{ departurecount }}</p>
-    </h1>
-    <h1>
-      Returns to the station:
-      <p>{{ returncount }}</p>
-    </h1>
+    <h1>Departures from the station: {{ departurecount }}</h1>
+    <h1>Returns to the station: {{ returncount }}</h1>
   </div>
 </div>
