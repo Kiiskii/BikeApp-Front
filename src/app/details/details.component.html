@@ -1,0 +1,15 @@
+<div>
+  <div class="rounded-lg border border-black" *ngIf="stations">
+    <p>{{ stations.nimi }}</p>
+    <p>{{ stations.namn }}</p>
+    <p>Bike Capacity: {{ stations.kapasiteet }}</p>
+    <h1>
+      Departures from the station:
+      <p>{{ departurecount }}</p>
+    </h1>
+    <h1>
+      Returns to the station:
+      <p>{{ returncount }}</p>
+    </h1>
+  </div>
+</div>
