@@ -15,4 +15,11 @@ describe('template spec', () => {
 
     cy.url().should('include', '/stations');
   });
+
+  it('clicking "home" navigates to home component', () => {
+    cy.visit('/');
+    cy.contains('Home').click();
+
+    cy.url().should('include', '/home');
+  });
 });
