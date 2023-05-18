@@ -20,5 +20,10 @@ describe('JourneysComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+
+    const convertSecondsToMinutesTest = component.convertSecondsToMinutes(120);
+    expect(convertSecondsToMinutesTest).toBe('2min');
+    const convertSecondsToMinutesTest2 = component.convertSecondsToMinutes(366);
+    expect(convertSecondsToMinutesTest2).toBe('6min 6sec');
   });
 });
