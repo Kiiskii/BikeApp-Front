@@ -22,4 +22,9 @@ describe('template spec', () => {
 
     cy.url().should('include', '/home');
   });
+
+  it('check if journeys has table in it', () => {
+    cy.visit('/journeys');
+    cy.get('table').should('be.visible');
+  });
 });
