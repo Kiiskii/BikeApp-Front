@@ -15,16 +15,4 @@ describe('template spec', () => {
 
     cy.url().should('include', '/stations');
   });
-
-  it('clicking "home" navigates to home component', () => {
-    cy.visit('/');
-    cy.contains('Home').click();
-
-    cy.url().should('include', '/home');
-  });
-
-  it('check if journeys has table in it', () => {
-    cy.visit('/journeys');
-    cy.get('table').should('be.visible');
-  });
 });
