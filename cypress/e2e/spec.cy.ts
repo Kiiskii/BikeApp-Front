@@ -38,6 +38,9 @@ describe('template spec', () => {
     cy.wait(500);
     cy.get('.nextPage').click({ force: true });
     cy.get('.currentPage').should('have.text', '2');
+    cy.wait(500);
+    cy.get('.prevPage').click({ force: true });
+    cy.get('.currentPage').should('have.text', '1');
   });
 
   it('check if links in name column take user to details', () => {
