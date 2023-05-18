@@ -40,7 +40,11 @@
         class="border-b border-b-black last:border-b-0"
       >
         <td>
-          <a routerLink="/details/{{ station.fid }}">{{ station.nimi }}</a>
+          <a
+            routerLink="/details/{{ station.fid }}"
+            class="text-blue-800 underline hover:text-white"
+            >{{ station.nimi }}</a
+          >
         </td>
         <td>{{ station.kaupunki }}</td>
         <td>{{ station.osoite }}</td>
