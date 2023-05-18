@@ -32,4 +32,18 @@ describe('template spec', () => {
     cy.visit('/stations');
     cy.get('table').should('be.visible');
   });
+
+  it('clicking small arrows in journeys increases or decreases page number', () => {
+    cy.visit('/journeys');
+    cy.wait(500);
+    cy.get('.nextPage').click({ force: true });
+    cy.get('.currentPage').should('have.text', '2');
+  });
+
+  it('check if links in name column take user to details', () => {
+    cy.visit('/stations');
+    cy.get('.stationLink').first().click();
+
+    cy.url().should('include', '/details');
+  });
 });
