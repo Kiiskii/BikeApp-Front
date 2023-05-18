@@ -21,5 +21,10 @@ describe('StationsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+
+    // const capitalizedStringTest = component.capitalizeFirstLetter('string');
+    // expect(capitalizedStringTest).toBe('String');
+    // const capitalizedStringTest2 = component.capitalizeFirstLetter('p');
+    // expect(capitalizedStringTest2).toBe('P');
   });
 });
