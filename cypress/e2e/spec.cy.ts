@@ -27,4 +27,9 @@ describe('template spec', () => {
     cy.visit('/journeys');
     cy.get('table').should('be.visible');
   });
+
+  it('check if stations has table in it', () => {
+    cy.visit('/stations');
+    cy.get('table').should('be.visible');
+  });
 });
