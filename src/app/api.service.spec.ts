@@ -7,6 +7,7 @@ import { ApiService } from './api.service';
 import { Journey } from './journey.model';
 import { Station } from './station.model';
 import { Details } from './details.model';
+import { environment } from 'src/environments/environment';
 
 describe('ApiService', () => {
   let service: ApiService;
@@ -34,7 +35,7 @@ describe('ApiService', () => {
     });
 
     const req = httpMock.expectOne(
-      `http://localhost:3000/api/journeys?page=${page}`
+      environment.apiUrl + `/api/journeys?page=${page}`
     );
     expect(req.request.method).toBe('GET');
     req.flush(mockJourneys);
@@ -47,7 +48,7 @@ describe('ApiService', () => {
       expect(pageCount).toEqual(mockPageCount);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/journeycount');
+    const req = httpMock.expectOne(environment.apiUrl + '/api/journeycount');
     expect(req.request.method).toBe('GET');
     req.flush(mockPageCount);
   });
@@ -61,7 +62,7 @@ describe('ApiService', () => {
     });
 
     const req = httpMock.expectOne(
-      `http://localhost:3000/api/stations?page=${page}`
+      environment.apiUrl + `/api/stations?page=${page}`
     );
     expect(req.request.method).toBe('GET');
     req.flush(mockStations);
@@ -74,7 +75,7 @@ describe('ApiService', () => {
       expect(pageCount).toEqual(mockPageCount);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/stationcount');
+    const req = httpMock.expectOne(environment.apiUrl + '/api/stationcount');
     expect(req.request.method).toBe('GET');
     req.flush(mockPageCount);
   });
@@ -91,7 +92,7 @@ describe('ApiService', () => {
       });
 
     const req = httpMock.expectOne(
-      `http://localhost:3000/api/search/${mockSearchQuery}?page=${page}`
+      environment.apiUrl + `/api/search/${mockSearchQuery}?page=${page}`
     );
     expect(req.request.method).toBe('GET');
     req.flush(mockSearchResults);
@@ -110,7 +111,7 @@ describe('ApiService', () => {
     });
 
     const req = httpMock.expectOne(
-      `http://localhost:3000/api/details/${mockDetailsId}`
+      environment.apiUrl + `/api/details/${mockDetailsId}`
     );
     expect(req.request.method).toBe('GET');
     req.flush(mockDetails);

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Journey } from './journey.model';
 import { Station } from './station.model';
 import { Details } from './details.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +12,12 @@ import { Details } from './details.model';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  journeysURL = 'http://localhost:3000/api/journeys';
-  journeycountURL = 'http://localhost:3000/api/journeycount';
-  stationsURL = 'http://localhost:3000/api/stations';
-  stationcountURL = 'http://localhost:3000/api/stationcount';
-  searchURL = 'http://localhost:3000/api/search/';
-  detailsURL = 'http://localhost:3000/api/details/';
+  journeysURL = environment.apiUrl + '/api/journeys';
+  journeycountURL = environment.apiUrl + '/api/journeycount';
+  stationsURL = environment.apiUrl + '/api/stations';
+  stationcountURL = environment.apiUrl + '/api/stationcount';
+  searchURL = environment.apiUrl + '/api/search/';
+  detailsURL = environment.apiUrl + '/api/details/';
 
   getJourneys(page: number): Observable<Journey[]> {
     return this.http.get<Journey[]>(this.journeysURL + '?page=' + page);
