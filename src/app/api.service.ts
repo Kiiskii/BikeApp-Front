@@ -36,7 +36,7 @@ export class ApiService {
 
   getSearchResult(searchQuery: string, page: number): Observable<Station[]> {
     return this.http.get<Station[]>(
-      this.searchURL + searchQuery + '?page' + page
+      this.searchURL + searchQuery + '?page=' + page
     );
   }
 

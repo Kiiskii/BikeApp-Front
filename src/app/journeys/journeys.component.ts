@@ -18,6 +18,9 @@ export class JourneysComponent {
     if (time >= 60) {
       let minutes = Math.floor(time / 60);
       let remainingTime = time % 60;
+      if (remainingTime === 0) {
+        return `${minutes}min`;
+      }
       return `${minutes}min ${remainingTime}sec`;
     }
     return `${time}sec`;
