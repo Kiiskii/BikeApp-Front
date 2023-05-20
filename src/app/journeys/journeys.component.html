@@ -1,0 +1,45 @@
+<div class="text-xs">
+  <div class="mx-auto overflow-hidden rounded-lg border border-black">
+    <table class="w-full table-fixed">
+      <tr class="border-b border-b-black bg-slate-400 font-bold">
+        <td>Departure</td>
+        <td>Return</td>
+        <td class="w-64">Departure Station</td>
+        <td class="w-64">Return Station</td>
+        <td>Distance</td>
+        <td>Duration</td>
+      </tr>
+      <tr
+        *ngFor="let journey of journeys"
+        class="border-b border-b-black last:border-b-0"
+      >
+        <td>
+          {{ journey.departure | stringToDate }}
+        </td>
+        <td>{{ journey.return | stringToDate }}</td>
+        <td>{{ journey.departure_station_name }}</td>
+        <td>{{ journey.return_station_name }}</td>
+        <td>{{ journey.covered_distance / 1000 | number : "1.1-2" }} km</td>
+        <td>{{ convertSecondsToMinutes(journey.duration) }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="has-text-centered flex justify-center gap-4 p-3 text-base">
+    <!-- 
+      I was originally planning on using pagination controls, but due to the amount of data made this quite difficult to implement.
+
+      pagination-controls
+      (pageChange)="page = $event"
+      class="flex justify-center p-1"
+    ></pagination-controls>
+   -->
+
+    <button (click)="firstPage()" class="button firstPage">&lt;&lt;&lt;</button>
+    <button (click)="prevPage()" class="button prevPage">&lt;</button>
+    <span class="currentPage">{{ page }}</span>
+    <p>of</p>
+    <span class="maximumPage">{{ maxPage }}</span>
+    <button (click)="nextPage()" class="button nextPage">&gt;</button>
+    <button (click)="lastPage()" class="button lastPage">&gt;&gt;&gt;</button>
+  </div>
+</div>
