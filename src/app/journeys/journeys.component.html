@@ -34,12 +34,12 @@
     ></pagination-controls>
    -->
 
-    <button (click)="firstPage()" class="button">&lt;&lt;&lt;</button>
-    <button (click)="prevPage()" class="button">&lt;</button>
-    <span>{{ page }}</span>
+    <button (click)="firstPage()" class="button firstPage">&lt;&lt;&lt;</button>
+    <button (click)="prevPage()" class="button prevPage">&lt;</button>
+    <span class="currentPage">{{ page }}</span>
     <p>of</p>
-    <span>{{ maxPage }}</span>
-    <button (click)="nextPage()" class="button">&gt;</button>
-    <button (click)="lastPage()" class="button">&gt;&gt;&gt;</button>
+    <span class="maximumPage">{{ maxPage }}</span>
+    <button (click)="nextPage()" class="button nextPage">&gt;</button>
+    <button (click)="lastPage()" class="button lastPage">&gt;&gt;&gt;</button>
   </div>
 </div>

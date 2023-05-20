@@ -9,9 +9,9 @@
       (ngModelChange)="search()"
       class="focus:border-primary dark:focus:border-primary relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
     />
-    <button
+    <div
       type="submit"
-      class="active:bg-primary-800 relative z-[2] flex items-center rounded-r bg-slate-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-slate-700 hover:shadow-lg focus:bg-slate-800 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+      class="active:bg-primary-800 relative z-[2] flex items-center rounded-r bg-slate-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out focus:bg-slate-800 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
           clip-rule="evenodd"
         />
       </svg>
-    </button>
+    </div>
   </div>
 
   <div class="mx-auto w-4/6 overflow-hidden rounded-lg border border-black">
@@ -40,7 +40,11 @@
         class="border-b border-b-black last:border-b-0"
       >
         <td>
-          <a routerLink="/details/{{ station.fid }}">{{ station.nimi }}</a>
+          <a
+            routerLink="/details/{{ station.fid }}"
+            class="stationLink text-blue-800 underline hover:text-white"
+            >{{ station.nimi }}</a
+          >
         </td>
         <td>{{ station.kaupunki }}</td>
         <td>{{ station.osoite }}</td>
