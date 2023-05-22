@@ -1,22 +1,22 @@
 <div class="text-xs">
-  <div class="mx-auto overflow-hidden rounded-lg border border-black">
+  <div class="mx-auto overflow-x-auto rounded-lg border border-black">
     <table class="w-full table-fixed">
       <tr class="border-b border-b-black bg-slate-400 font-bold">
-        <td>Departure</td>
-        <td>Return</td>
+        <td class="hidden lg:table-cell">Departure</td>
+        <td class="hidden lg:table-cell">Return</td>
         <td class="w-64">Departure Station</td>
         <td class="w-64">Return Station</td>
-        <td>Distance</td>
-        <td>Duration</td>
+        <td class="w-32">Distance</td>
+        <td class="w-32">Duration</td>
       </tr>
       <tr
         *ngFor="let journey of journeys"
         class="border-b border-b-black last:border-b-0"
       >
-        <td>
+        <td class="hidden lg:table-cell">
           {{ journey.departure | stringToDate }}
         </td>
-        <td>{{ journey.return | stringToDate }}</td>
+        <td class="hidden lg:table-cell">{{ journey.return | stringToDate }}</td>
         <td>{{ journey.departure_station_name }}</td>
         <td>{{ journey.return_station_name }}</td>
         <td>{{ journey.covered_distance / 1000 | number : "1.1-2" }} km</td>
